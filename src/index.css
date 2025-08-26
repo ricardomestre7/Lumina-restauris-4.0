@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.quantum-pattern-light {
+    background-color: #f0f2ff;
+    background-image:
+        linear-gradient(45deg, #e6e8ff 25%, transparent 25%),
+        linear-gradient(-45deg, #e6e8ff 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e6e8ff 75%),
+        linear-gradient(-45deg, transparent 75%, #e6e8ff 75%);
+    background-size: 20px 20px;
+}
+
+.quantum-pattern-dark {
+    background-color: #0d0a1b;
+    background-image:
+        linear-gradient(45deg, #130f2c 25%, transparent 25%),
+        linear-gradient(-45deg, #130f2c 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #130f2c 75%),
+        linear-gradient(-45deg, transparent 75%, #130f2c 75%);
+    background-size: 20px 20px;
+}
+
+.quantum-card {
+  @apply rounded-xl border border-border/20 backdrop-blur-sm bg-card/70 dark:bg-card/70;
+}
+
+.quantum-glow {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), 0 0 5px rgba(219, 39, 119, 0.4);
+}
+
+.login-bg-light {
+    background: linear-gradient(to bottom right, #f0f2ff, #e6e8ff); /* Light gradient background */
+    overflow: hidden;
+    position: relative;
+}
+
+.login-card {
+    background-color: #313131; /* Dark background for the card */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Light border for definition */
+}
+
+.login-title {
+  @apply text-4xl font-bold tracking-tighter text-yellow-400;
+}
+
+.login-button {
+  @apply bg-green-500 text-white font-bold hover:bg-green-600 transition-colors duration-300;
+}
+
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-hide {
+    display: none !important;
+  }
+  .print-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+  .print-title {
+    color: #000 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+  }
+  .print-page-break {
+    page-break-before: always;
+  }
+  @page {
+    margin: 0.5in;
+  }
+}
